@@ -1,0 +1,31 @@
+@model IEnumerable<midterm_project.Models.Fish>
+
+@{
+    ViewData["Title"] = "Fish Store";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Pets</h1>
+    @foreach (var fish in Model)
+    {
+        <img src="@fish.Url" alt="@fish.Name" class="fish-image" />
+        <h2>@fish.Name</h2>
+        <a class="btn btn-sm btn-secondary mb-3"
+            asp-controller="Pet" asp-action="Edit" asp-route-id="@fish.Id" >
+            View / Edit Fish
+        </a>
+        <a class="btn btn-sm btn-danger mb-3 ml-3"
+            asp-controller="Pet" asp-action="Detail" asp-route-id="@fish.Id">
+           View Details
+        </a>
+
+        <a class="btn btn-sm btn-danger mb-3 ml-3"
+            asp-controller="Pet" asp-action="Delete" asp-route-id="@fish.Id">
+            Delete Fish
+        </a>
+    }
+
+    <div>
+        <a class="btn btn-primary mt-3 clearfix" asp-controller="Pet" asp-action="Create">Create New</a>
+    </div>
+</div>

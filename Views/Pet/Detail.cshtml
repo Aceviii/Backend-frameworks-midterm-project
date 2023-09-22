@@ -1,0 +1,26 @@
+@model midterm_project.Models.Fish
+
+@{
+    ViewData["Title"] = "Fish Detail";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Fish Facts</h1>
+<br>
+    <dl class="row">
+        <dt class="col-sm-2"></dt>
+        <dd class="col-sm-10">@Model.Name</dd>
+
+        <dt class="col-sm-2"></dt>
+        <dd class="col-sm-10">@Model.Description</dd>
+
+        <dt class="col-sm-2"></dt>
+        <dd class="col-sm-10"><img src="@Model.Url" alt="@Model.Name" class="img-fluid" /></dd>
+    </dl>
+
+    <a class="btn btn-sm btn-secondary mb-3" asp-controller="Pet" asp-action="Edit" asp-route-id="@Model.Id">Edit Fish</a>
+    
+    <div>
+        <a class="btn btn-primary mt-3 clearfix" asp-controller="Pet" asp-action="List">Back to List</a>
+    </div>
+</div>
